@@ -1,0 +1,249 @@
+/* Body and Background */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #01252e, #023d47);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Game Header */
+#game-header {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    transition: top 0.5s ease-in-out; /* Smooth transition */
+}
+
+#game-header.top-position {
+    top: 0; /* Move the title to the top */
+}
+
+#game-title {
+    font-size: 3rem;
+    color: #ff5733; /* Orange color */
+    font-family: 'Creepster', cursive; /* Unique game font */
+    text-shadow: 2px 2px 10px #000, 0 0 25px #ff5733, 0 0 5px #ff5733;
+}
+
+
+/* Player Info Section */
+#player-info {
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+#player-name {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px 0;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #1e3a4d;
+    color: white;
+}
+
+#card-count {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px 0;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #1e3a4d;
+    color: white;
+}
+
+button {
+    background: #058d8f;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: #2a4d5b;
+}
+
+#start-btn {
+    font-size: 1.2rem;
+}
+
+/* Cards Section */
+.cards-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.card .inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.card.flipped .inner {
+    transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.card .front {
+    background: white;
+    color: black;
+    border: 2px solid black;
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    background: linear-gradient(135deg, #30cfd0, #330867);
+    border: 2px solid white;
+    font-size: 2rem;
+    color: white;
+}
+
+.card.red {
+    color: red;
+}
+/* Hover effect for cards */
+.card:hover {
+    transform: scale(1.1); /* Slightly enlarge card on hover */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Result Message */
+#result-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ff5733; /* Red color for message */
+}
+
+#result-message.green {
+    color: green;
+}
+
+#result-message.red {
+    color: red;
+}
+
+/* Restart & Exit Button Styles */
+#restart-btn, #exit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+    transition: background-color 0.3s ease;
+}
+
+#restart-btn:hover, #exit-btn:hover {
+    background-color: #91e895;
+}
+
+#restart-btn:active, #exit-btn:active {
+    background-color: #3e8e41;
+}
+
+#restart-btn:not(.hidden), #exit-btn:not(.hidden) {
+    display: inline-block;
+}
+
+/* Hide elements with 'hidden' class */
+.hidden {
+    display: none;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    #game-title {
+        font-size: 2.5rem;
+    }
+
+    #player-name, #card-count {
+        width: 80%;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 80px;
+        height: 120px;
+    }
+
+    #player-info {
+        margin-bottom: 20px;
+    }
+
+    #game-container {
+        width: 90%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    #game-title {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 60px;
+        height: 100px;
+    }
+
+    #player-info {
+        width: 90%;
+        margin: 10px;
+    }
+
+    #game-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #scoreboard {
+        font-size: 1rem;
+    }
+}

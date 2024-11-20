@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Card Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-header">
+        <div id="game-title">The Card Quest</div>
+    </div>
+    
+    <!-- Player Info Section -->
+    <div id="player-info">
+        <h2>Enter Your Name</h2>
+        <input type="text" id="player-name" placeholder="Enter Name">
+        <select id="card-count">
+            <option value="1">1 Card</option>
+            <option value="2">2 Cards</option>
+            <option value="3">3 Cards</option>
+            <option value="5">5 Cards</option>
+            <option value="10">10 Cards</option>
+        </select>
+        <button id="start-btn">Start Game</button>
+    </div>
+
+    <!-- Game Section (Cards and Results) -->
+    <div id="game-container" class="hidden">
+        <h3 id="player-display"></h3>
+        <div id="scoreboard">
+            <div><span id="player-score">0</span></div>
+            <div>Computer Score: <span id="computer-score">0</span></div>
+        </div>
+        <div id="cards-container">
+            <div id="player-cards" class="cards-section"></div>
+            <div id="computer-cards" class="cards-section"></div>
+        </div>
+        <div id="result-message"></div>
+        <button id="restart-btn" class="hidden">Restart Game</button>
+        <button id="exit-btn" class="hidden">Exit Game</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
